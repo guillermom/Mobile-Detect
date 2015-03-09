@@ -34,6 +34,7 @@
 
 require_once '../Mobile_Detect.php';
 $detect = new Mobile_Detect;
+
 $deviceType = ($detect->isMobile() ? ($detect->isTablet() ? 'tablet' : 'phone') : 'computer');
 $scriptVersion = $detect->getScriptVersion();
 
@@ -134,7 +135,7 @@ $scriptVersion = $detect->getScriptVersion();
                         'source':         'demoVisitor'
                 },
                 success: function(r){
-                    try{ console.log(r); } catch(e){ }
+                    try { console.log(r); } catch (e) { }
                 }
             });
 
@@ -231,23 +232,36 @@ $scriptVersion = $detect->getScriptVersion();
             </tr>
             <tr>
                 <td>isiphone()</td>
-                <td><?php echo var_dump($detect->isiphone()); ?></td>
+                <td><?php var_dump($detect->isiphone()); ?></td>
             </tr>
             <tr>
                 <td>isIphone()</td>
-                <td><?php echo var_dump($detect->isIphone()); ?></td>
+                <td><?php var_dump($detect->isIphone()); ?></td>
             </tr>
             <tr>
                 <td>istablet()</td>
-                <td><?php echo var_dump($detect->istablet()); ?></td>
+                <td><?php var_dump($detect->istablet()); ?></td>
             </tr>
             <tr>
                 <td>isIOS()</td>
-                <td><?php echo var_dump($detect->isIOS()); ?></td>
+                <td><?php var_dump($detect->isIOS()); ?></td>
             </tr>
             <tr>
                 <td>isWhateverYouWant()</td>
-                <td class="randomcrap"><?php echo var_dump($detect->isWhateverYouWant()); ?></td>
+                <td class="randomcrap"><?php var_dump($detect->isWhateverYouWant()); ?></td>
+            </tr>
+        </tbody>
+        <tbody>
+            <tr>
+                <th colspan="2">Debug</th>
+            </tr>
+            <tr>
+                <td>Matching Regex</td>
+                <td><?php var_dump($detect->getMatchingRegex()); ?></td>
+            </tr>
+            <tr>
+                <td>Matching Array</td>
+                <td><?php var_dump($detect->getMatchesArray()); ?></td>
             </tr>
         </tbody>
     </table>
